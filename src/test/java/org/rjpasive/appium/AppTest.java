@@ -24,15 +24,17 @@ public class AppTest {
 
 	@Before
 	public void setup() throws MalformedURLException {
-
+		System.out.println("setup() started");
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.CHROME);
+		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
+//		capabilities.setCapability(MobileCapabilityType.PLATFORM, MobilePlatform.ANDROID);
 		capabilities.setCapability(MobileCapabilityType.PLATFORM, MobilePlatform.ANDROID);
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "blablablaaa");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.1.1");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium Demo");
+		capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME, "Appium Demo");
+//		capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+		capabilities.setCapability(MobileCapabilityType.VERSION, "5.1.1");
 
-		URL url = new URL("http://localhost:4723/wd/hub");
+		URL url = new URL("http://172.30.2.233:4444/wd/hub");
 
 		driver = new AndroidDriver<>(url, capabilities);
 
